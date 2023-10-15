@@ -1,6 +1,5 @@
 """Forms of the project."""
 from django import forms
-from .models import User
 from django.core.validators import MinLengthValidator
 from django.core.validators import MaxLengthValidator
 
