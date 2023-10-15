@@ -1,8 +1,12 @@
 """Forms of the project."""
 from django import forms
-from django.core.validators import MaxValueValidator, MinValueValidator
+from .models import Thing
 
-class ThingForm(forms.Form):
-    name=forms.CharField()
-    description=forms.Textarea()
-    quantity = forms.IntegerField()
+
+class ThingForm(forms.ModelForm):
+    class Meta:
+        model = Thing
+        fields = ['name', 'description', 'quantity']
+    
+    description=forms.Textarea(label = 'description')
+    quantity=forms.NumberInput(label = 'quantity')
